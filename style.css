@@ -940,7 +940,7 @@ section.visible {
     }
 
     /* Buttons */
-    .btn {
+    .btn:not(.footer .btn-warning) {
         width: 100%;
         margin-bottom: 0.5rem;
     }
@@ -977,5 +977,11 @@ section.visible {
     
     .icon-circle {
         margin-right: 0 !important;
+    }
+
+    /* Fix for footer newsletter gap on mobile */
+    .footer .d-flex .btn {
+        width: auto !important;
+        margin-left: 0.5rem;
     }
 }
