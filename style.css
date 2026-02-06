@@ -405,7 +405,7 @@ html {
 }
 
 .card-img-wrapper {
-    height: 200px;
+    height: 150px;
     overflow: hidden;
     position: relative;
 }
@@ -422,7 +422,7 @@ html {
 }
 
 .card-content {
-    padding: 1.5rem;
+    padding: 1rem;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
@@ -431,17 +431,17 @@ html {
 }
 
 .card-content h3 {
-    font-size: 1.25rem;
+    font-size: 1.15rem;
     font-weight: 700;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     color: #ffffff; /* White text */
 }
 
 .card-content p {
     color: #e0e0e0; /* Slightly off-white for description */
-    font-size: 0.95rem;
-    line-height: 1.5;
-    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin-bottom: 1rem;
     flex-grow: 1;
 }
 
