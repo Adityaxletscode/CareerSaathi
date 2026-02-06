@@ -146,6 +146,89 @@ html {
     animation: slideUp 0.8s ease-out;
 }
 
+/* About Section Styling */
+.about-section {
+    background-color: #ffffff;
+    overflow: hidden;
+    scroll-margin-top: 90px; /* Offset for fixed navbar */
+}
+
+.about-image-wrapper {
+    position: relative;
+    padding: 1rem;
+}
+
+.about-main-img {
+    transition: transform 0.5s ease;
+    border: 5px solid rgba(255, 193, 7, 0.1);
+}
+
+.about-image-wrapper:hover .about-main-img {
+    transform: scale(1.02);
+}
+
+.experience-badge {
+    position: absolute;
+    bottom: -20px;
+    right: 20px;
+    background-color: #1a1a1a;
+    color: #fff;
+    padding: 1.5rem;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border: 4px solid #ffc107;
+    text-align: center;
+    z-index: 10;
+}
+
+.experience-badge .years {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #ffc107;
+    line-height: 1;
+}
+
+.experience-badge .text {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    margin-top: 0.2rem;
+    font-weight: 600;
+}
+
+/* Bounce Animation for Badge */
+@keyframes bounceSlow {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.bounce-anim {
+    animation: bounceSlow 3s infinite ease-in-out;
+}
+
+.icon-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 4px 10px rgba(255, 193, 7, 0.3);
+}
+
+.about-content h2 {
+    background: linear-gradient(45deg, #1a1a1a, #555);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
 /* Testimonials Section Styling */
 .testimonials-section {
     background-color: #f8f9fa;
@@ -498,15 +581,14 @@ html {
 
 /* Contact Section Styling */
 .contact-section {
-    background-color: #121212;
-    color: #ffffff;
+    color: #1a1a1a;
     text-align: center;
 }
 
 .contact-text {
     font-size: 1.25rem;
     line-height: 1.8;
-    color: #d0d0d0;
+    color: #555;
     max-width: 800px;
     margin: 0 auto;
 }
@@ -537,13 +619,19 @@ html {
     align-items: center;
     width: 45px;
     height: 45px;
-    background-color: rgba(255, 255, 255, 0.1);
-    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0.05);
+    color: #1a1a1a;
     border-radius: 50%;
     text-decoration: none;
     font-size: 1.2rem;
     transition: all 0.3s ease;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.social-btn:hover {
+    background-color: #ffc107;
+    color: #1a1a1a;
+    border-color: #ffc107;
 }
 
 /* Footer Styling */
@@ -718,5 +806,176 @@ section.visible {
     .footer-title::after {
         left: 50%;
         transform: translateX(-50%);
+    }
+}
+
+/* Contact Form Styling */
+.contact-form-wrapper {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    padding: 3rem;
+    border-radius: 1rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    margin-bottom: 2rem;
+}
+
+.contact-form-wrapper .form-control {
+    background-color: #f8f9fa;
+    border: 1px solid #ced4da;
+    color: #1a1a1a;
+}
+
+.contact-form-wrapper .form-control:focus {
+    background-color: #ffffff;
+    border-color: #ffc107;
+    box-shadow: 0 0 0 0.25rem rgba(255, 193, 7, 0.25);
+    color: #1a1a1a;
+}
+
+.contact-form-wrapper .form-floating label {
+    color: #6c757d;
+}
+
+.contact-form-wrapper .form-floating > .form-control:focus ~ label,
+.contact-form-wrapper .form-floating > .form-control:not(:placeholder-shown) ~ label {
+    color: #ffc107;
+    background-color: transparent;
+}
+
+.form-floating > .form-control:-webkit-autofill {
+    -webkit-text-fill-color: #1a1a1a;
+    -webkit-box-shadow: 0 0 0px 1000px #f8f9fa inset;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+/* =========================================
+   Responsive Design Enhancements
+   ========================================= */
+
+/* Large Tablets & Laptops (max-width: 1024px) */
+@media (max-width: 1024px) {
+    .about-main-img {
+        height: auto;
+        max-height: 400px;
+    }
+
+    .experience-badge {
+        width: 100px;
+        height: 100px;
+        padding: 1rem;
+        right: 10px;
+        bottom: -15px;
+    }
+
+    .experience-badge .years {
+        font-size: 1.5rem;
+    }
+
+    .contact-form-wrapper {
+        padding: 2.5rem;
+    }
+}
+
+/* Tablets & Large Phones (max-width: 768px) */
+@media (max-width: 768px) {
+    /* Navbar text alignment */
+    .navbar-collapse {
+        text-align: center;
+    }
+
+    /* About Section */
+    .about-section {
+        text-align: center;
+    }
+
+    .about-content {
+        padding-left: 0 !important;
+        margin-top: 2rem;
+    }
+
+    .about-image-wrapper {
+        margin-bottom: 3rem;
+    }
+    
+    .experience-badge {
+        right: 50%;
+        transform: translateX(50%);
+        bottom: -30px;
+    }
+    
+    .about-content .d-flex {
+        justify-content: center;
+    }
+    
+    /* Contact Form */
+    .contact-form-wrapper {
+        padding: 2rem;
+        margin-top: 1rem;
+    }
+    
+    .contact-section h2 {
+        font-size: 1.75rem;
+    }
+}
+
+/* Mobile Devices (max-width: 576px) */
+@media (max-width: 576px) {
+    /* Global Container Padding */
+    .container {
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+    }
+
+    /* Typography */
+    h1, .display-5 {
+        font-size: 2rem !important;
+    }
+    
+    h2 {
+        font-size: 1.75rem !important;
+    }
+    
+    p.lead {
+        font-size: 1.1rem;
+    }
+
+    /* Buttons */
+    .btn {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+    
+    .social-links {
+        flex-wrap: wrap;
+    }
+
+    /* Contact Form */
+    .contact-form-wrapper {
+        padding: 1.5rem;
+    }
+    
+    /* About Section Specifics */
+    .experience-badge {
+        width: 90px;
+        height: 90px;
+        bottom: -25px;
+    }
+    
+    .experience-badge .years {
+        font-size: 1.3rem;
+    }
+    
+    .icon-circle {
+        margin-bottom: 0.5rem;
+    }
+    
+    .col-sm-6 .d-flex {
+        flex-direction: column;
+        text-align: center;
+        margin-bottom: 1.5rem;
+    }
+    
+    .icon-circle {
+        margin-right: 0 !important;
     }
 }
