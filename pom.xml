@@ -16,6 +16,7 @@
 	<groupId>CareerSaathi</groupId>
 	<artifactId>CareerSaathi</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
 	<name>CareerSaathi</name>
 	<description>CarrerSathi Consultancy website</description>
 
