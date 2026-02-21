@@ -1,3 +1,4 @@
+com\carrersathi\CareerSathiApplication.class
 com\carrersathi\controller\Controllers.class
 com\carrersathi\dao\UserDao.class
 com\carrersathi\dao\UserDaoImpl.class
