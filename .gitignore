@@ -54,3 +54,6 @@ buildNumber.properties
 Thumbs.db
 Desktop.ini
 .DS_Store
+
+### Secrets ###
+src/main/resources/application.properties
