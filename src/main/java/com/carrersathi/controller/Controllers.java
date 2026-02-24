@@ -174,7 +174,17 @@ public class Controllers{
 				return "login";
 			}
 			session.setAttribute("user", user);
-			model.addAttribute("success","Redirecting to main page . . . . ");
+			model.addAttribute("success","Login Successful! Redirecting...");
+			
+			// Set redirect URL based on role
+			if(user.getRole().equalsIgnoreCase("CONSULTEE")) {
+				model.addAttribute("redirectUrl", "/consultee/dashboard");
+			} else if(user.getRole().equalsIgnoreCase("CONSULTOR")) {
+				model.addAttribute("redirectUrl", "/consultor/dashboard");
+			} else {
+				model.addAttribute("redirectUrl", "/test");
+			}
+			
 			return "login";
 			
 		}catch (Exception e) {
@@ -182,6 +192,153 @@ public class Controllers{
 			model.addAttribute("error",e.getMessage());
 			return "error";
 		}
+	}
+	
+	// Consultee Dashboard Routes
+	@GetMapping("/consultee/dashboard")
+	public String consulteeDashboard(HttpSession session, Model model) {
+		User user = (User) session.getAttribute("user");
+		if (user == null || !user.getRole().equalsIgnoreCase("CONSULTEE")) {
+			return "redirect:/login";
+		}
+		model.addAttribute("user", user);
+		model.addAttribute("activeTab", "dashboard");
+		return "consultee_dashboard";
+	}
+
+	@GetMapping("/consultee/assessment")
+	public String consulteeAssessment(HttpSession session, Model model) {
+		User user = (User) session.getAttribute("user");
+		if (user == null || !user.getRole().equalsIgnoreCase("CONSULTEE")) return "redirect:/login";
+		model.addAttribute("user", user);
+		model.addAttribute("activeTab", "assessment");
+		return "consultee_assessment";
+	}
+
+	@GetMapping("/consultee/mentors")
+	public String consulteeMentors(HttpSession session, Model model) {
+		User user = (User) session.getAttribute("user");
+		if (user == null || !user.getRole().equalsIgnoreCase("CONSULTEE")) return "redirect:/login";
+		model.addAttribute("user", user);
+		model.addAttribute("activeTab", "mentors");
+		return "consultee_mentors";
+	}
+
+	@GetMapping("/consultee/sessions")
+	public String consulteeSessions(HttpSession session, Model model) {
+		User user = (User) session.getAttribute("user");
+		if (user == null || !user.getRole().equalsIgnoreCase("CONSULTEE")) return "redirect:/login";
+		model.addAttribute("user", user);
+		model.addAttribute("activeTab", "sessions");
+		return "consultee_sessions";
+	}
+
+	@GetMapping("/consultee/chat")
+	public String consulteeChat(HttpSession session, Model model) {
+		User user = (User) session.getAttribute("user");
+		if (user == null || !user.getRole().equalsIgnoreCase("CONSULTEE")) return "redirect:/login";
+		model.addAttribute("user", user);
+		model.addAttribute("activeTab", "chat");
+		return "consultee_chat";
+	}
+
+	@GetMapping("/consultee/profile")
+	public String consulteeProfile(HttpSession session, Model model) {
+		User user = (User) session.getAttribute("user");
+		if (user == null || !user.getRole().equalsIgnoreCase("CONSULTEE")) return "redirect:/login";
+		model.addAttribute("user", user);
+		model.addAttribute("activeTab", "profile");
+		return "consultee_profile";
+	}
+
+	@GetMapping("/consultor/dashboard")
+	public String consultorDashboard(HttpSession session, Model model) {
+		User user = (User) session.getAttribute("user");
+		if (user == null || !user.getRole().equalsIgnoreCase("CONSULTOR")) {
+			return "redirect:/login";
+		}
+		model.addAttribute("user", user);
+		model.addAttribute("activeTab", "dashboard");
+		return "consultor_dashboard";
+	}
+
+	@GetMapping("/consultor/profile")
+	public String consultorProfile(HttpSession session, Model model) {
+		User user = (User) session.getAttribute("user");
+		if (user == null || !user.getRole().equalsIgnoreCase("CONSULTOR")) return "redirect:/login";
+		model.addAttribute("user", user);
+		model.addAttribute("activeTab", "profile");
+		return "consultor_profile";
+	}
+
+	@GetMapping("/consultor/availability")
+	public String consultorAvailability(HttpSession session, Model model) {
+		User user = (User) session.getAttribute("user");
+		if (user == null || !user.getRole().equalsIgnoreCase("CONSULTOR")) return "redirect:/login";
+		model.addAttribute("user", user);
+		model.addAttribute("activeTab", "availability");
+		return "consultor_availability";
+	}
+
+	@GetMapping("/consultor/requests")
+	public String consultorRequests(HttpSession session, Model model) {
+		User user = (User) session.getAttribute("user");
+		if (user == null || !user.getRole().equalsIgnoreCase("CONSULTOR")) return "redirect:/login";
+		model.addAttribute("user", user);
+		model.addAttribute("activeTab", "requests");
+		return "consultor_requests";
+	}
+
+	@GetMapping("/consultor/sessions")
+	public String consultorSessions(HttpSession session, Model model) {
+		User user = (User) session.getAttribute("user");
+		if (user == null || !user.getRole().equalsIgnoreCase("CONSULTOR")) return "redirect:/login";
+		model.addAttribute("user", user);
+		model.addAttribute("activeTab", "sessions");
+		return "consultor_sessions";
+	}
+
+	@GetMapping("/consultor/analytics")
+	public String consultorAnalytics(HttpSession session, Model model) {
+		User user = (User) session.getAttribute("user");
+		if (user == null || !user.getRole().equalsIgnoreCase("CONSULTOR")) return "redirect:/login";
+		model.addAttribute("user", user);
+		model.addAttribute("activeTab", "analytics");
+		return "consultor_analytics";
+	}
+
+	@GetMapping("/consultor/reviews")
+	public String consultorReviews(HttpSession session, Model model) {
+		User user = (User) session.getAttribute("user");
+		if (user == null || !user.getRole().equalsIgnoreCase("CONSULTOR")) return "redirect:/login";
+		model.addAttribute("user", user);
+		model.addAttribute("activeTab", "reviews");
+		return "consultor_reviews";
+	}
+
+	@GetMapping("/consultor/earnings")
+	public String consultorEarnings(HttpSession session, Model model) {
+		User user = (User) session.getAttribute("user");
+		if (user == null || !user.getRole().equalsIgnoreCase("CONSULTOR")) return "redirect:/login";
+		model.addAttribute("user", user);
+		model.addAttribute("activeTab", "earnings");
+		return "consultor_earnings";
+	}
+
+	@GetMapping("/consultor/chat")
+	public String consultorChat(HttpSession session, Model model) {
+		User user = (User) session.getAttribute("user");
+		if (user == null || !user.getRole().equalsIgnoreCase("CONSULTOR")) return "redirect:/login";
+		model.addAttribute("user", user);
+		model.addAttribute("activeTab", "chat");
+		return "consultor_chat";
+	}
+
+	@GetMapping("/logout")
+	public String logout(HttpSession session) {
+		session.removeAttribute("user");
+		session.invalidate();
+		return "redirect:/login";
 	}
 	@GetMapping("/test")
 	public String test(HttpSession session , Model model) {

@@ -142,7 +142,7 @@
 				timer : 2000,
 				showConfirmButton : false
 			}).then(()=>{
-				window.location.href="${pageContext.request.contextPath}/test";
+				window.location.href="${pageContext.request.contextPath}${redirectUrl}";
 			});
 		}
 	</script>

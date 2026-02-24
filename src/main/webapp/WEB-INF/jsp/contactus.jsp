@@ -59,15 +59,6 @@
             </li>
           </ul>
 
-          <!-- Auth Buttons on Right -->
-          <ul class="navbar-nav ms-auto align-items-center auth-buttons">
-            <li class="nav-item">
-              <a href="#login" class="btn btn-auth login">Login</a>
-            </li>
-            <li class="nav-item">
-              <a href="#signup" class="btn btn-auth signup">Sign Up</a>
-            </li>
-          </ul>
         </div>
       </div>
     </nav>
